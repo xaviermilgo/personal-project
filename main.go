@@ -152,6 +152,10 @@ func main() {
 
 		counter = counter.Add(time.Minute * time.Duration(r))
 
+		if counter.After(time.Now()) {
+			break
+		}
+
 		if counter.Weekday() == time.Sunday {
 			if rand.Intn(100) >= 10 {
 				continue
